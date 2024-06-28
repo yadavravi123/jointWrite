@@ -31,10 +31,12 @@ io.on('connection', (socket)=>{
             else{
                 RoomtoUser.get(RoomId).push({socketId:sktId,username:username});
             }
+            
             // console.log(`kjdjdf`,RoomtoUser.get(RoomId));
             let updatedContent="";
             if(RoomtoContent.has(RoomId)==true) updatedContent=RoomtoContent.get(RoomId);
             let updatedClientList=RoomtoUser.get(RoomId);
+            console.log('content:',updatedContent);
             io.to(RoomId).emit('join',{updatedClientList,updatedContent});
         })
         
