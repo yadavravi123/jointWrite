@@ -4,9 +4,8 @@ import {Editor as MEditor} from "@monaco-editor/react";
 
 function Editor(){
     const [content,setContent]=useState("");
-    const textAreaRef = useRef(null);
     socket.on('content-edited',(updatedContent)=>{
-        console.log('updated content',updatedContent);
+        // console.log('updated content',updatedContent);
         setContent(updatedContent);
     })
     socket.on('join',({updatedClientList,updatedContent})=>{
